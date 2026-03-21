@@ -1,0 +1,25 @@
+<div class="page-section">
+    <h2>1. Toggle Visibility</h2>
+    <p>要素の表示・非表示を切り替えます。</p>
+    
+    <button id="btn-toggle">トグル切り替え</button>
+    <div id="target-box" class="box">Target Box</div>
+
+    <h3 style="margin-top:24px;">📝 コード</h3>
+    <pre><code>const targetBox = carbon.id('target-box');
+
+carbon.id('btn-toggle').tapped(() => {
+    targetBox.toggle(); // or .show() / .hide()
+});</code></pre>
+    <button class="btn-primary go-back" style="width:100%; margin-top:20px;"><- 戻る</button>
+</div>
+
+<script>
+{
+
+        
+    const targetBox = carbon.id('target-box');
+    carbon.id('btn-toggle')?.tapped(() => targetBox.toggle());
+
+}
+</script>

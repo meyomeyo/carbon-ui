@@ -1,0 +1,276 @@
+/* CarbonUI Modern Mobile App Style */
+
+:root {
+    --primary: #161616;
+    --primary-light: #e0e0e0;
+    --success: #24a148;
+    --success-light: #defbe6;
+    --danger: #da1e28;
+    --bg-color: #f4f4f4;
+    --surface: #ffffff;
+    --text-main: #161616;
+    --text-sub: #525252;
+    --border: #e0e0e0;
+    --radius: 8px;
+    --shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Header */
+.app-header {
+    background: var(--surface);
+    padding: 16px 20px;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+}
+
+.app-header h1 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.app-desc {
+    padding: 12px 20px;
+    margin: 0;
+    font-size: 13px;
+    color: var(--text-sub);
+    text-align: center;
+}
+
+/* App Container */
+#app {
+    padding: 10px 20px 40px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Cards */
+.page-section {
+    background: var(--surface);
+    border-radius: var(--radius);
+    padding: 20px;
+    margin-bottom: 24px;
+    box-shadow: var(--shadow);
+}
+
+.page-section h2 {
+    margin: 0 0 16px 0;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.page-section h3 {
+    margin: 20px 0 12px 0;
+    font-size: 15px;
+    color: var(--text-sub);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Buttons */
+button {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--primary);
+    font-size: 15px;
+    font-weight: 600;
+    padding: 12px 20px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: inline-block;
+    margin: 4px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+}
+
+button:active {
+    transform: scale(0.96);
+    background: var(--bg-color);
+}
+
+button[disabled] {
+    opacity: 0.4;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: #ffffff;
+    border: none;
+}
+
+.btn-primary:active {
+    background: #393939;
+}
+
+/* State Buttons */
+.state-btn {
+    color: var(--text-main);
+}
+.state-btn.carbon-active {
+    background: var(--success);
+    color: white;
+    border-color: var(--success);
+}
+
+/* CarbonUI Status Colors */
+.carbon-success {
+    background: var(--success) !important;
+    color: white !important;
+    border-color: var(--success) !important;
+}
+
+.carbon-failed,
+.carbon-error,
+.carbon-danger {
+    background: var(--danger) !important;
+    color: white !important;
+    border-color: var(--danger) !important;
+}
+
+.carbon-warning,
+.carbon-alert {
+    background: #FF9500 !important;
+    color: white !important;
+    border-color: #FF9500 !important;
+}
+
+.carbon-info {
+    background: #5AC8FA !important;
+    color: white !important;
+    border-color: #5AC8FA !important;
+}
+
+.carbon-disabled,
+.carbon-inactive {
+    background: var(--bg-color) !important;
+    color: var(--text-sub) !important;
+    border-color: var(--border) !important;
+    opacity: 0.7;
+}
+
+/* Interactive Elements */
+.box {
+    width: 100%;
+    height: 120px;
+    background: var(--primary-light);
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+    margin: 12px 0;
+    user-select: none;
+    font-weight: 600;
+    font-size: 16px;
+    transition: 0.3s;
+    border: 2px dashed var(--primary);
+}
+
+#touch-box {
+    background: #fff0f5;
+    color: #da1e28;
+    border-color: #da1e28;
+}
+
+/* Logs */
+#event-log {
+    background: #2c2c2e;
+    color: #32d74b;
+    padding: 12px 16px;
+    border-radius: 12px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 13px;
+    margin-top: 12px;
+    min-height: 20px;
+}
+
+/* Code Menus and Snippets */
+.menu-btn {
+    display: block; width: 100%; border: 1px solid var(--border);
+    background: var(--surface); color: var(--text-main);
+    text-align: left; padding: 16px; margin-bottom: 8px;
+    border-radius: 12px; font-weight: 600; cursor: pointer;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.02); transition: 0.2s;
+}
+.menu-btn:active {
+    background: var(--bg-color);
+    transform: scale(0.98);
+}
+pre {
+    background: #282c34;
+    color: #abb2bf;
+    padding: 16px;
+    border-radius: 12px;
+    font-family: ui-monospace, SFMono-Regular, monospace;
+    font-size: 13px;
+    overflow-x: auto;
+    margin: 8px 0;
+}
+code {
+    font-family: inherit;
+}
+code.hljs { padding: 0 \!important; background: transparent \!important; }
+
+/* Homepage & Docs Styles */
+.hero { text-align: center; padding: 40px 20px; }
+.hero img { width: 150px; height: 150px; margin-bottom: 20px; }
+.hero h1 { font-size: 3rem; margin: 0 0 10px 0; letter-spacing: 2px; }
+.hero p { color: var(--text-sub); font-size: 1.2rem; margin-bottom: 30px; }
+.actions { display: flex; gap: 16px; justify-content: center; }
+.btn { display: inline-block; padding: 12px 28px; border-radius: 8px; text-decoration: none; font-weight: bold; transition: opacity 0.2s; }
+.btn:hover { opacity: 0.8; }
+.btn-primary { background: var(--primary); color: #ffffff; border: none; }
+.btn-secondary { background: var(--surface); color: var(--text-main); border: 1px solid var(--border); }
+
+.docs-header { background: var(--surface); padding: 16px 24px; display: flex; align-items: center; gap: 16px; border-bottom: 1px solid var(--border); }
+.docs-header a { color: var(--text-sub); text-decoration: none; font-size: 14px; display: flex; align-items: center; }
+.docs-header a:hover { color: var(--text-main); }
+.docs-header h1 { margin: 0; font-size: 1.2rem; display: flex; align-items: center; gap: 8px; color: var(--text-main); }
+.docs-header img { width: 28px; height: 28px; }
+.docs-container { max-width: 800px; margin: 40px auto; padding: 0 20px; background: transparent; }
+.docs-container h2 { border-bottom: 1px solid var(--border); padding-bottom: 8px; margin-top: 40px; color: var(--text-main); font-size: 22px; font-weight: 700; }
+.docs-container ul { padding-left: 20px; color: var(--text-main); }
+.docs-container li { margin-bottom: 8px; }
+.cta { margin-top: 40px; text-align: center; }
+.btn-play { display: inline-block; padding: 12px 24px; background: var(--surface); color: var(--primary); text-decoration: none; border-radius: 8px; font-weight: bold; border: 1px solid var(--border); transition: 0.2s ease; }
+.btn-play:hover { background: var(--bg-color); }
+
+
+.hero-layout { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; }
+
+/* Docs Specific Improvements */
+.api-section { margin-bottom: 50px; }
+.api-section h3 { color: var(--primary); margin-top: 40px; font-size: 1.6rem; border-bottom: 2px solid var(--border); padding-bottom: 12px; font-weight: 800; }
+.api-section h4 { color: var(--primary); margin-top: 32px; font-size: 1.2rem; font-weight: 700; }
+.api-section p { color: var(--text-sub); margin-bottom: 16px; line-height: 1.8; }
+.method-sig { font-family: ui-monospace, SFMono-Regular, monospace; background: #e8e8e8; padding: 12px 16px; border-radius: 8px; display: inline-block; color: var(--primary); font-size: 15px; border: 1px solid var(--border); margin-bottom: 16px; font-weight: 600; box-shadow: 0 2px 4px rgba(0,0,0,0.02); }
+table { width: 100%; border-collapse: separate; border-spacing: 0; margin-top: 16px; font-size: 14.5px; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+th, td { text-align: left; padding: 14px 16px; border-bottom: 1px solid var(--border); }
+th { color: var(--primary); font-weight: 700; background: #fafafa; border-bottom: 2px solid var(--border); }
+td { color: var(--text-main); background: var(--surface); }
+tr:last-child td { border-bottom: none; }
+td code { font-size: 13.5px; color: var(--danger); background: #fdf5f5; padding: 2px 6px; border-radius: 4px; border: 1px solid #ffd1d1; }
+.toc-box { background: var(--surface); padding: 32px; border-radius: 12px; margin: 40px 0; border: 1px solid var(--border); box-shadow: var(--shadow); }
+.toc-box h3 { margin-top: 0; border-bottom: none; padding-bottom: 16px; font-size: 1.4rem; color: var(--primary); font-weight: 800; }
+.toc-box ul { margin: 0; padding-left: 20px; columns: 1; list-style-type: none; }
+@media (min-width: 600px) { .toc-box ul { columns: 2; } }
+.toc-box li { margin-bottom: 12px; }
+.toc-box a { color: var(--text-main); text-decoration: none; font-weight: 600; transition: color 0.2s; display: inline-block; padding: 4px 0; }
+.toc-box a:hover { color: var(--success); }
+

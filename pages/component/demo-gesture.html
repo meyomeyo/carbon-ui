@@ -1,0 +1,33 @@
+<div class="page-section">
+    <h2>5. Gestures</h2>
+    <p>タッチやジェスチャー等に最適化されたイベント群です。</p>
+    
+    <div id="touch-box" class="box">
+        触ってみて！<br>(Tap / Swipe / LongPress)
+    </div>
+    <div id="event-log">Event logs...</div>
+
+    <h3 style="margin-top:24px;">📝 コード</h3>
+    <pre><code>const log = carbon.id('event-log');
+
+carbon.id('touch-box')
+    .tapped(() => log.text('💡 タップ！'))
+    .longPressed(() => log.text('⏱️ 長押し！'), 500)
+    .swiped((el, dir) => {
+        log.text(`💨 ${dir}にスワイプ！`);
+    });</code></pre>
+    <button class="btn-primary go-back" style="width:100%; margin-top:20px;"><- 戻る</button>
+</div>
+
+<script>
+{
+
+    
+    const log = carbon.id('event-log');
+    carbon.id('touch-box')
+        ?.tapped(() => log.text('💡 タップされました！'))
+        .longPressed(() => log.text('⏱️ 長押しされました！'), 500)
+        .swiped((el, dir) => log.text(`💨 ${dir} 方向にスワイプされました！`));
+
+}
+</script>

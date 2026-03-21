@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CarbonUI Playground</title>
+    <link rel="stylesheet" href="carbon-style.css">
+    
+    <!-- Code Highlight (highlight.js) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/styles/atom-one-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/highlight.min.js"></script>
+</head>
+<body>
+    <header class="docs-header">
+        <a href="index.html">← 戻る</a>
+        <h1>CarbonUI Playground <img src="../logo.svg" alt="Logo"></h1>
+    </header>
+    <p class="app-desc">※ ローカルサーバー(<code>python3 -m http.server 8000</code>)で表示してください。</p>
+
+    <!-- SPA マウント先 -->
+    <div id="app"><p>ローディング中...</p></div>
+
+    <script type="module">
+        import carbon from '../carbon-ui.js';
+
+        // ページ遷移後に確実にシンタックスハイライトを適用する
+        const _originalGo = carbon.go.bind(carbon);
+        carbon.go = async (...args) => {
+            const res = await _originalGo(...args);
+            if (window.hljs) hljs.highlightAll();
+            return res;
+        };
+
+        // 共通関数をグローバルに定義（各コンポーネントから呼び出せるようにする）
+        window.loadPage = async (pageCode) => {
+            await carbon.go(pageCode);
+            // 戻るボタンのバインド（どのコンポーネントにも共通）
+            carbon.class('go-back').tapped(() => carbon.back());
+        };
+        carbon.init({
+            root: '#app',
+            home: 'component/home'
+        });
+    </script>
+</body>
+</html>

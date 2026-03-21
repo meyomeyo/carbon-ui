@@ -1,0 +1,24 @@
+<div class="page-section">
+    <h2>🏠 コンポーネント目次</h2>
+    <p style="color:var(--text-sub); font-size:14px; margin-bottom:16px;">機能ごとにコンポーネント(.html)とスクリプトが分かれています。</p>
+    
+    <button class="menu-btn" data-go="component/demo-toggle">1. Toggle (表示/非表示)</button>
+    <button class="menu-btn" data-go="component/demo-state">2. State & Array (状態と複数要素)</button>
+    <button class="menu-btn" data-go="component/demo-status">3. Status Colors (ステータス色)</button>
+    <button class="menu-btn" data-go="component/demo-attr">4. Attribute (属性操作)</button>
+    <button class="menu-btn" data-go="component/demo-gesture">5. Gestures (ジェスチャー)</button>
+    <button class="menu-btn" data-go="component/demo-observer">6. Observers (監視)</button>
+    <button class="menu-btn" data-go="component/about">7. Routing (SPA遷移の詳細)</button>
+</div>
+
+<script>
+{
+
+        
+    carbon.class('menu-btn').tapped((w) => {
+        // window.loadPageは一旦playground.htmlにある共通関数を使います
+        window.loadPage(w.raw.dataset.go);
+    });
+
+}
+</script>
