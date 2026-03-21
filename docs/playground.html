@@ -11,15 +11,24 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/highlight.min.js"></script>
 </head>
 <body>
+    <button class="lang-switch" onclick="toggleLang()">🌐 EN / JA</button>
     <header class="docs-header">
-        <a href="index.html">← 戻る</a>
+        <a href="index.html">← Homepage</a>
         <h1>CarbonUI Playground <img src="https://raw.githubusercontent.com/meyomeyo/carbon-ui/4bb0c61d1dce3ed9d1c8cc7bb5d84bfb6add8455/logo.svg" alt="Logo"></h1>
     </header>
-    <p class="app-desc">※ ローカルサーバー(<code>python3 -m http.server 8000</code>)で表示してください。</p>
-
     <!-- SPA マウント先 -->
-    <div id="app"><p>ローディング中...</p></div>
+    <div id="app"><p class="ja">ローディング中...</p><p class="en">Loading...</p></div>
 
+    <script>
+        function toggleLang() {
+            const html = document.documentElement;
+            const newLang = html.lang === 'ja' ? 'en' : 'ja';
+            html.lang = newLang;
+            localStorage.setItem('carbon_lang', newLang);
+        }
+        const savedLang = localStorage.getItem('carbon_lang') || (navigator.language.startsWith('ja') ? 'ja' : 'en');
+        document.documentElement.lang = savedLang;
+    </script>
     <script type="module">
         import carbon from 'https://cdn.jsdelivr.net/gh/meyomeyo/carbon-ui/carbon-ui.js';
 

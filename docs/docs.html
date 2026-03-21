@@ -10,165 +10,176 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/highlight.min.js"></script>
 </head>
 <body>
+    <button class="lang-switch" onclick="toggleLang()">🌐 EN / JA</button>
     <header class="docs-header">
-        <a href="index.html">← 戻る</a>
+        <a href="index.html" class="ja">← 戻る</a><a href="index.html" class="en">← Back</a>
         <h1><img src="https://raw.githubusercontent.com/meyomeyo/carbon-ui/4bb0c61d1dce3ed9d1c8cc7bb5d84bfb6add8455/logo.svg" alt="Logo"> CarbonUI Documentation</h1>
     </header>
     
     <div class="docs-container">
-        <p>CarbonUIはシンプルで軽量なJavaScript UIライブラリです。jQueryライクなメソッドチェーンを用いながら、モダンな状態管理やSPAルーティング、各種ジェスチャーをサポートします。</p>
+        <p class="ja">CarbonUIはシンプルで軽量なJavaScript UIライブラリです。jQueryライクなメソッドチェーンを用いながら、モダンな状態管理やSPAルーティング、各種ジェスチャーをサポートします。</p>
+        <p class="en">CarbonUI is a simple and lightweight JavaScript UI library. It supports modern state management, SPA routing, and various gestures while using a jQuery-like method chain.</p>
 
         <!-- 目次 -->
         <div class="toc-box">
-            <h3 style="margin-top:0; border-bottom: none; padding-bottom:0;">API リファレンス目次</h3>
+            <h3 style="margin-top:0; border-bottom: none; padding-bottom:0;"><span class="ja">API リファレンス目次</span><span class="en">API Reference Index</span></h3>
             <ul style="margin: 0; padding-left: 20px; columns: 2;">
-                <li><a href="#core" style="color: var(--text-main);">1. Core (取得・ライフサイクル)</a></li>
-                <li><a href="#widget" style="color: var(--text-main);">2. CarbonWidget (単一要素操作)</a></li>
-                <li><a href="#els" style="color: var(--text-main);">3. CarbonEls (複数要素操作)</a></li>
-                <li><a href="#state" style="color: var(--text-main);">4. State (状態管理)</a></li>
-                <li><a href="#store" style="color: var(--text-main);">5. Store (データ保存)</a></li>
-                <li><a href="#router" style="color: var(--text-main);">6. Router (SPA遷移)</a></li>
+                <li><a href="#core" style="color: var(--text-main);"><span class="ja">1. Core (取得・ライフサイクル)</span><span class="en">1. Core (Select / Lifecycle)</span></a></li>
+                <li><a href="#widget" style="color: var(--text-main);"><span class="ja">2. CarbonWidget (単一要素操作)</span><span class="en">2. CarbonWidget (Single Element)</span></a></li>
+                <li><a href="#els" style="color: var(--text-main);"><span class="ja">3. CarbonEls (複数要素操作)</span><span class="en">3. CarbonEls (Multiple Elements)</span></a></li>
+                <li><a href="#state" style="color: var(--text-main);"><span class="ja">4. State (状態管理)</span><span class="en">4. State Management</span></a></li>
+                <li><a href="#store" style="color: var(--text-main);"><span class="ja">5. Store (データ保存)</span><span class="en">5. Store (Web Storage)</span></a></li>
+                <li><a href="#router" style="color: var(--text-main);"><span class="ja">6. Router (SPA遷移)</span><span class="en">6. Router (SPA)</span></a></li>
             </ul>
         </div>
 
-        <h2 id="core">1. Core API (要素取得・ライフサイクル)</h2>
+        <h2 id="core"><span class="ja">1. Core API (要素取得・ライフサイクル)</span><span class="en">1. Core API (Select & Lifecycle)</span></h2>
         <div class="api-section">
-            <p><code>carbon.*</code> オブジェクトから呼び出せる基本メソッドです。</p>
+            <p class="ja"><code>carbon.*</code> オブジェクトから呼び出せる基本メソッドです。</p><p class="en">Basic methods called from the <code>carbon.*</code> object.</p>
 
-            <h4>要素の取得</h4>
+            <h4 class="ja">要素の取得</h4><h4 class="en">Select Elements</h4>
             <table>
-                <tr><th>メソッド</th><th>戻り値</th><th>説明</th></tr>
-                <tr><td><code>carbon.id(id)</code></td><td>CarbonWidget</td><td>指定したID(<code>#</code>不要)の要素を取得します。</td></tr>
-                <tr><td><code>carbon.class(className)</code></td><td>CarbonEls</td><td>指定したクラス(<code>.</code>不要)を持つ全ての要素を取得します。</td></tr>
-                <tr><td><code>carbon.find(selector)</code></td><td>CarbonWidget</td><td>CSSセレクタで最初に一致する要素を取得します。</td></tr>
+                <tr><th>Method</th><th>Returns</th><th>Description</th></tr>
+                <tr><td><code>carbon.id(id)</code></td><td>CarbonWidget</td><td><span class="ja">指定したID(<code>#</code>不要)の要素を取得します。</span><span class="en">Get element by ID (no <code>#</code>).</span></td></tr>
+                <tr><td><code>carbon.class(className)</code></td><td>CarbonEls</td><td><span class="ja">指定したクラス(<code>.</code>不要)を持つ全ての要素を取得します。</span><span class="en">Get elements by class name (no <code>.</code>).</span></td></tr>
+                <tr><td><code>carbon.find(selector)</code></td><td>CarbonWidget</td><td><span class="ja">CSSセレクタで最初に一致する要素を取得します。</span><span class="en">Get the first element matching the CSS selector.</span></td></tr>
             </table>
 
             <br>
             <div class="method-sig">carbon.ready(callback)</div>
-            <p>DOMの構築(DOMContentLoaded相当)が完了したタイミングでコールバックを実行します。既に完了している場合は即座に実行されます。</p>
+            <p><span class="ja">DOMの構築完了後に実行します。</span><span class="en">Execute callback after DOM is ready.</span></p>
             <pre><code class="language-js">carbon.ready(() => console.log('Ready!'));</code></pre>
         </div>
 
-        <h2 id="widget">2. CarbonWidget (単一要素の操作)</h2>
+        <h2 id="widget"><span class="ja">2. CarbonWidget (単一要素の操作)</span><span class="en">2. CarbonWidget (Single Element)</span></h2>
         <div class="api-section">
-            <p><code>carbon.id()</code> や <code>carbon.find()</code> で取得した要素は <code>CarbonWidget</code> としてラップされ、以下のメソッドをチェーンで利用できます。</p>
+            <p><code>carbon.id()</code> や <code>carbon.find()</code> で取得した要素はラップされ、チェーンで利用できます。</span><span class="en">Obtained elements are wrapped and can be method-chained.</span></p>
 
-            <h4>プロパティ</h4>
+            <h4 class="ja">プロパティ</h4><h4 class="en">Properties</h4>
             <ul>
-                <li><code>widget.raw</code> - ラップされている元の生DOM要素 (HTMLElement)</li>
-                <li><code>widget.state</code> - <a href="#state" style="color:var(--text-main);">状態管理(State)オブジェクトへのアクセス</a></li>
+                <li><code>widget.raw</code> - <span class="ja">ラップされている元の生DOM要素</span><span class="en">The raw DOM element</span> (HTMLElement)</li>
+                <li><code>widget.state</code> - <a href="#state" style="color:var(--text-main);"><span class="ja">状態管理(State)オブジェクト</span><span class="en">Access to State management</span></a></li>
             </ul>
 
-            <h4>DOM操作・表示</h4>
+            <h4 class="ja">DOM操作・表示</h4><h4 class="en">DOM & Visibility</h4>
             <table>
-                <tr><th>メソッド</th><th>説明</th></tr>
-                <tr><td><code>.show()</code></td><td>要素の <code>display: none</code> を解除し表示します。</td></tr>
-                <tr><td><code>.hide()</code></td><td>要素に <code>display: none</code> を設定して隠します。</td></tr>
-                <tr><td><code>.toggle()</code></td><td>表示/非表示を切り替えます。</td></tr>
-                <tr><td><code>.isVisible()</code></td><td>要素が表示されているか (boolean) を返します。</td></tr>
-                <tr><td><code>.isHidden()</code></td><td>要素が隠れているか (boolean) を返します。</td></tr>
-                <tr><td><code>.text(val)</code></td><td>要素のテキスト(textContent)を書き換えます。</td></tr>
-                <tr><td><code>.html(val)</code></td><td>要素内のHTML(innerHTML)を書き換えます。</td></tr>
-                <tr><td><code>.destroy()</code></td><td>DOMから要素を完全に削除します。イベントも解除されます。</td></tr>
+                <tr><th>Method</th><th>Description</th></tr>
+                <tr><td><code>.show()</code></td><td><span class="ja">要素を表示します。</span><span class="en">Show the element.</span></td></tr>
+                <tr><td><code>.hide()</code></td><td><span class="ja">要素を隠します。</span><span class="en">Hide the element.</span></td></tr>
+                <tr><td><code>.toggle()</code></td><td><span class="ja">表示/非表示を切り替えます。</span><span class="en">Toggle visibility.</span></td></tr>
+                <tr><td><code>.isVisible()</code></td><td><span class="ja">表示状態を返します(boolean)。</span><span class="en">Returns true if visible.</span></td></tr>
+                <tr><td><code>.isHidden()</code></td><td><span class="ja">非表示状態を返します(boolean)。</span><span class="en">Returns true if hidden.</span></td></tr>
+                <tr><td><code>.text(val)</code></td><td><span class="ja">テキストを設定します。</span><span class="en">Set textContent.</span></td></tr>
+                <tr><td><code>.html(val)</code></td><td><span class="ja">HTMLを設定します。</span><span class="en">Set innerHTML.</span></td></tr>
+                <tr><td><code>.destroy()</code></td><td><span class="ja">要素を完全に削除します。</span><span class="en">Remove element from DOM.</span></td></tr>
             </table>
 
-            <h4>入力・フォーム補助</h4>
+            <h4 class="ja">入力・フォーム</h4><h4 class="en">Forms & Inputs</h4>
             <table>
-                <tr><th>メソッド</th><th>説明</th></tr>
-                <tr><td><code>.disable()</code></td><td>ボタン等に <code>disabled</code> 属性を付与します。</td></tr>
-                <tr><td><code>.enable()</code></td><td><code>disabled</code> 属性を解除します。</td></tr>
-                <tr><td><code>.isEmpty()</code></td><td>input/textareaにおいて、入力値が空かどうか(boolean)を返します。</td></tr>
-                <tr><td><code>.isFilled()</code></td><td>入力値が存在するか(boolean)を返します。</td></tr>
+                <tr><th>Method</th><th>Description</th></tr>
+                <tr><td><code>.disable()</code></td><td><span class="ja">disabledを付与します。</span><span class="en">Add disabled attribute.</span></td></tr>
+                <tr><td><code>.enable()</code></td><td><span class="ja">disabledを解除します。</span><span class="en">Remove disabled attribute.</span></td></tr>
+                <tr><td><code>.isEmpty()</code></td><td><span class="ja">入力が空かどうか返します。</span><span class="en">Returns true if input is empty.</span></td></tr>
+                <tr><td><code>.isFilled()</code></td><td><span class="ja">入力があるか返します。</span><span class="en">Returns true if input is filled.</span></td></tr>
             </table>
 
-            <h4>イベントとジェスチャー</h4>
+            <h4 class="ja">イベント・ジェスチャー</h4><h4 class="en">Events & Gestures</h4>
             <table>
-                <tr><th>メソッド</th><th>説明</th></tr>
-                <tr><td><code>.tapped(fn)</code></td><td>クリックまたはタップ(touchstart)で発火します。引数: <code>(widget, event)</code></td></tr>
-                <tr><td><code>.focused(fn)</code></td><td>フォーカス(focus)された際に発火します。</td></tr>
-                <tr><td><code>.unfocused(fn)</code></td><td>フォーカスが外れた(blur)際に発火します。</td></tr>
-                <tr><td><code>.longPressed(fn, ms)</code></td><td>長押しで発火します。第2引数で長押し判定のミリ秒(デフォルト500)を指定可能。</td></tr>
-                <tr><td><code>.swiped(fn, threshold)</code></td><td>スワイプした際、方向("up"|"down"|"left"|"right")を第2引数として返します。第2引数で判定距離(デフォルト50px)を指定可能。</td></tr>
+                <tr><th>Method</th><th>Description</th></tr>
+                <tr><td><code>.tapped(fn)</code></td><td><span class="ja">タップ/クリックで発火。</span><span class="en">Triggers on click or tap.</span></td></tr>
+                <tr><td><code>.focused(fn)</code></td><td><span class="ja">フォーカスで発火。</span><span class="en">Triggers on focus.</span></td></tr>
+                <tr><td><code>.unfocused(fn)</code></td><td><span class="ja">フォーカスが外れた際に発火。</span><span class="en">Triggers on blur.</span></td></tr>
+                <tr><td><code>.longPressed(fn, ms)</code></td><td><span class="ja">長押しで発火。</span><span class="en">Triggers on long press (ms).</span></td></tr>
+                <tr><td><code>.swiped(fn, threshold)</code></td><td><span class="ja">スワイプで方向を返します。</span><span class="en">Returns swipe direction.</span></td></tr>
             </table>
 
-            <h4>監視 (Observer)</h4>
+            <h4 class="ja">監視 (Observer)</h4><h4 class="en">Observer</h4>
             <div class="method-sig">.watch(prop, callback)</div>
-            <p>要素の属性や値の変更をリアクティブに監視します。<br><code>prop === 'value'</code> の場合はinputなどの入力変更を監視し、それ以外の場合は <code>data-*</code> などのDOM属性の変動を監視します。</p>
+            <p><span class="ja">属性や値の変更を監視します。</span><span class="en">Watch for attribute or value changes dynamically.</span></p>
             <pre><code class="language-js">carbon.id('username').watch('value', (newValue) => {
     console.log(newValue);
 });</code></pre>
             <div class="method-sig">.unwatch(prop)</div>
-            <p>指定したpropの監視(MutationObserver/EventListener)を解除します。</p>
+            <p><span class="ja">監視を解除します。</span><span class="en">Stop watching the prop.</span></p>
 
         </div>
 
-        <h2 id="els">3. CarbonEls (複数要素の操作)</h2>
+        <h2 id="els"><span class="ja">3. CarbonEls (複数要素の操作)</span><span class="en">3. CarbonEls (Multiple Elements)</span></h2>
         <div class="api-section">
-            <p><code>carbon.class()</code> で取得した要素リストを扱うラッパーです。取得した複数の要素に対して、自動的に一括処理を行います。</p>
+            <p><code>carbon.class()</code> で取得した複数要素のラッパーです。</span><span class="en">Wrapper for a list of elements to process in bulk.</span></p>
             
             <table>
-                <tr><th>メソッド</th><th>説明</th></tr>
-                <tr><td><code>.each(fn)</code></td><td>各要素(CarbonWidget)ごとにループ処理を実行します。コールバック引数: <code>(widget)</code></td></tr>
-                <tr><td><code>.first()</code></td><td>リスト内の最初の要素を <code>CarbonWidget</code> として返します。</td></tr>
-                <tr><td><code>.count()</code></td><td>取得できた要素の数を返します。</td></tr>
-                <tr><td><code>.tapped(fn)</code></td><td>全要素に対してtappedイベントを一括でバインドします。</td></tr>
-                <tr><td><code>.show()</code></td><td>全要素を一括で表示します。</td></tr>
-                <tr><td><code>.hide()</code></td><td>全要素を一括で非表示にします。</td></tr>
+                <tr><th>Method</th><th>Description</th></tr>
+                <tr><td><code>.each(fn)</code></td><td><span class="ja">各要素でループ処理。</span><span class="en">Loops over each widget.</span></td></tr>
+                <tr><td><code>.first()</code></td><td><span class="ja">最初の要素を返します。</span><span class="en">Returns first widget.</span></td></tr>
+                <tr><td><code>.count()</code></td><td><span class="ja">要素数を返します。</span><span class="en">Returns element count.</span></td></tr>
+                <tr><td><code>.tapped(fn)</code></td><td><span class="ja">全てにtappedをバインド。</span><span class="en">Binds tapped to all.</span></td></tr>
+                <tr><td><code>.show()</code></td><td><span class="ja">全てを表示します。</span><span class="en">Show all elements.</span></td></tr>
+                <tr><td><code>.hide()</code></td><td><span class="ja">全てを非表示にします。</span><span class="en">Hide all elements.</span></td></tr>
             </table>
         </div>
 
-        <h2 id="state">4. State (状態管理API)</h2>
+        <h2 id="state"><span class="ja">4. State (状態管理API)</span><span class="en">4. State API</span></h2>
         <div class="api-section">
-            <p>CarbonWidget の <code>.state</code> プロパティからアクセスする状態管理特化のAPIです。<br>状態を適用すると自動的に <code>carbon-[name]</code> クラスと <code>data-carbon-state="[name]"</code> 属性がDOMに付与され、スタイルの切り替えや状態把握がスムーズになります。</p>
+            <p><span class="ja">状態管理APIです。<code>carbon-[name]</code>が付与されます。</span><span class="en">State management API. Automatically applies <code>carbon-[name]</code> class.</span></p>
 
             <table>
-                <tr><th>メソッド</th><th>説明</th></tr>
-                <tr><td><code>.apply(name)</code></td><td>指定した状態(CSSクラスとdata属性)を適用します。</td></tr>
-                <tr><td><code>.remove(name)</code></td><td>指定した状態を解除します。</td></tr>
-                <tr><td><code>.is(name)</code></td><td>現在その状態が適用されているか (boolean) を返します。</td></tr>
-                <tr><td><code>.current()</code></td><td>現在適用されている状態名(data-carbon-state)を文字列で返します。</td></tr>
-                <tr><td><code>.clear()</code></td><td>付与されているすべての <code>carbon-*</code> 状態を初期化（削除）します。</td></tr>
+                <tr><th>Method</th><th>Description</th></tr>
+                <tr><td><code>.apply(name)</code></td><td><span class="ja">状態を適用します。</span><span class="en">Applies state.</span></td></tr>
+                <tr><td><code>.remove(name)</code></td><td><span class="ja">状態を解除します。</span><span class="en">Removes state.</span></td></tr>
+                <tr><td><code>.is(name)</code></td><td><span class="ja">適用中か返します。</span><span class="en">Returns true if state is applied.</span></td></tr>
+                <tr><td><code>.current()</code></td><td><span class="ja">現在の状態名を返します。</span><span class="en">Returns current state name.</span></td></tr>
+                <tr><td><code>.clear()</code></td><td><span class="ja">すべての状態をクリア。</span><span class="en">Clears all states.</span></td></tr>
             </table>
             <pre><code class="language-js">carbon.id('btn').state.apply('loading'); // `carbon-loading` クラスを要素に付与
 console.log( carbon.id('btn').state.current() ); // "loading" を出力</code></pre>
         </div>
 
-        <h2 id="store">5. Store (Web Storage 操作)</h2>
+        <h2 id="store"><span class="ja">5. Store (Web Storage)</span><span class="en">5. Store (Web Storage)</span></h2>
         <div class="api-section">
-            <p><code>carbon.store</code> オブジェクト経由で sessionStorage への読み書きを安全に行います。<br>オブジェクトや配列は自動で JSON エンコード/デコードされ、キーの重複を防ぐため自動的に <code>carbon_</code> プレフィックスが付与されます。</p>
+            <p><span class="ja">sessionStorageへの安全なI/O。JSON結合やプレフィックス対応。</span><span class="en">Safe I/O for sessionStorage. Auto JSON encode/decode.</span></p>
 
             <table>
-                <tr><th>メソッド</th><th>説明</th></tr>
-                <tr><td><code>store.set(key, val)</code></td><td>データを保存します。オブジェクトや配列もそのまま渡せます。</td></tr>
-                <tr><td><code>store.get(key)</code></td><td>keyに対応するデータを取得(デコード)して返します。無い場合は <code>undefined</code>。</td></tr>
-                <tr><td><code>store.delete(key)</code></td><td>保存されたデータを削除します。</td></tr>
+                <tr><th>Method</th><th>Description</th></tr>
+                <tr><td><code>store.set(key, val)</code></td><td><span class="ja">データを保存します。</span><span class="en">Save data.</span></td></tr>
+                <tr><td><code>store.get(key)</code></td><td><span class="ja">データを取得します。</span><span class="en">Get data.</span></td></tr>
+                <tr><td><code>store.delete(key)</code></td><td><span class="ja">データを削除します。</span><span class="en">Delete data.</span></td></tr>
             </table>
         </div>
 
-        <h2 id="router">6. Router (SPAルーティング)</h2>
+        <h2 id="router"><span class="ja">6. Router (SPA)</span><span class="en">6. Router (SPA)</span></h2>
         <div class="api-section">
-            <p>Fetch APIとHistory APIを活用した超軽量ルーター機能です。ページをリロードせずにコンテンツを切り替え、キャッシュを活用してサクサク動作させます。</p>
+            <p><span class="ja">FetchとHistoryを用いた超軽量ルーター機能。</span><span class="en">Lightweight SPA router using Fetch and History APIs.</span></p>
 
             <div class="method-sig">carbon.init(options)</div>
-            <p>SPAルーターを初期化します。対象となるマウント領域(root)と初期ページ(home)を指定します。</p>
+            <p><span class="ja">ルーターを初期化します。</span><span class="en">Initialize SPA router.</span></p>
             <pre><code class="language-js">carbon.init({
     root: '#app',          // 描画先DOM (デフォルト: '#app')
     home: 'component/home' // アクセス時に最初に読み込むパス (.htmlは不要)
 });</code></pre>
 
             <div class="method-sig">carbon.go(pageName, replace = false)</div>
-            <p>指定したページ(<code>[pageName].html</code>) を非同期(fetch)で取得し、指定したroot要素内を書き換えます。<br>取得したHTMLはキャッシュされ、内部の <code>&lt;script&gt;</code> タグは自動的に再評価・実行されます。<br><code>replace = true</code> にするとブラウザに履歴(History)を追加せず上書き遷移します。</p>
+            <p><span class="ja">ページ遷移を非同期で実行します。</span><span class="en">Navigate asynchronously via fetch().</span></p>
 
             <div class="method-sig">carbon.back()</div>
-            <p>ブラウザの履歴(History API)を利用して前の状態(一つ前のページ)へ戻ります。</p>
+            <p><span class="ja">一つ前のページへ戻ります。</span><span class="en">Navigate back in history.</span></p>
         </div>
 
         <div class="cta" style="margin-bottom: 60px;">
-            <a href="playground.html" class="btn-play">▶ プレイグラウンドで動作を確認する</a>
+            <a href="playground.html" class="btn-play"><span class="ja">▶ プレイグラウンドで動作を確認する</span><span class="en">▶ Try the Playground</span></a>
         </div>
     </div>
     
     <script>
+        function toggleLang() {
+            const html = document.documentElement;
+            const newLang = html.lang === 'ja' ? 'en' : 'ja';
+            html.lang = newLang;
+            localStorage.setItem('carbon_lang', newLang);
+        }
+        const savedLang = localStorage.getItem('carbon_lang') || (navigator.language.startsWith('ja') ? 'ja' : 'en');
+        document.documentElement.lang = savedLang;
+        
         document.addEventListener('DOMContentLoaded', () => {
             if (window.hljs) hljs.highlightAll();
         });

@@ -7,14 +7,26 @@
     <link rel="stylesheet" href="carbon-style.css">
 </head>
 <body class="hero-layout">
+    <button class="lang-switch" onclick="toggleLang()">🌐 EN / JA</button>
     <div class="hero">
         <img src="https://raw.githubusercontent.com/meyomeyo/carbon-ui/4bb0c61d1dce3ed9d1c8cc7bb5d84bfb6add8455/logo.svg" alt="CarbonUI Logo">
         <h1>CarbonUI</h1>
-        <p>シンプルで軽量なJavaScript UIライブラリ</p>
+        <p class="ja">「読んだらわかる」に特化した、jQueryライクなモダンUIライブラリ</p>
+        <p class="en">A modern, jQuery-like UI library that reads like plain English</p>
         <div class="actions">
-            <a href="docs.html" class="btn btn-primary">ドキュメント</a>
+            <a href="docs.html" class="btn btn-primary"><span class="ja">ドキュメント</span><span class="en">Documentation</span></a>
             <a href="playground.html" class="btn btn-secondary">Playground (Demo)</a>
         </div>
     </div>
+    <script>
+        function toggleLang() {
+            const html = document.documentElement;
+            const newLang = html.lang === 'ja' ? 'en' : 'ja';
+            html.lang = newLang;
+            localStorage.setItem('carbon_lang', newLang);
+        }
+        const savedLang = localStorage.getItem('carbon_lang') || (navigator.language.startsWith('ja') ? 'ja' : 'en');
+        document.documentElement.lang = savedLang;
+    </script>
 </body>
 </html>

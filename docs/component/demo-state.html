@@ -1,12 +1,12 @@
 <div class="page-section">
     <h2>2. State & Array</h2>
-    <p>複数要素(.class)の取得と状態(.state)の一括操作です。</p>
+    <p><span class="ja">複数要素(.class)の取得と状態(.state)の一括操作です。</span><span class="en">Select multiple elements and manipulate state.</span></p>
     
     <button class="state-btn">A</button>
     <button class="state-btn">B</button>
     <button class="state-btn">C</button>
 
-    <h3 style="margin-top:24px;">📝 コード</h3>
+    <h3 style="margin-top:24px;"><span class="ja">📝 コード</span><span class="en">📝 Code</span></h3>
     <pre><code>const states = ['active', 'info', 'disabled'];
 let count = 0;
 
@@ -16,7 +16,7 @@ carbon.class('state-btn').tapped((widget) => {
     widget.state.apply(states[count % 3]);
     count++;
 });</code></pre>
-    <button class="btn-primary go-back" style="width:100%; margin-top:20px;"><- 戻る</button>
+    <button class="btn-primary go-back" style="width:100%; margin-top:20px;"><span class="ja"><- 戻る</span><span class="en"><- Back</span></button>
 </div>
 
 <script>

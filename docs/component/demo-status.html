@@ -1,13 +1,13 @@
 <div class="page-section">
     <h2>3. Status Colors</h2>
-    <p>CarbonUI標準のステータスカラーを適用します。</p>
+    <p><span class="ja">CarbonUI標準のステータスカラーを適用します。</span><span class="en">Apply standard CarbonUI status colors.</span></p>
     
     <button id="btn-success">Success</button>
     <button id="btn-danger">Danger</button>
     <button id="btn-warning">Warning</button>
-    <button id="btn-clear" style="margin-top: 8px; width: 100%;">クリア (元の状態に戻す)</button>
+    <button id="btn-clear" style="margin-top: 8px; width: 100%;"><span class="ja">クリア (元の状態に戻す)</span><span class="en">Clear State</span></button>
 
-    <h3 style="margin-top:24px;">📝 コード</h3>
+    <h3 style="margin-top:24px;"><span class="ja">📝 コード</span><span class="en">📝 Code</span></h3>
     <pre><code>carbon.id('btn-success').tapped((w) => {
     w.state.apply('success');
     w.text('success 適用!');
@@ -17,7 +17,7 @@ carbon.id('btn-clear').tapped(() => {
     // 状態を剥がす
     carbon.id('btn-success').state.clear();
 });</code></pre>
-    <button class="btn-primary go-back" style="width:100%; margin-top:20px;"><- 戻る</button>
+    <button class="btn-primary go-back" style="width:100%; margin-top:20px;"><span class="ja"><- 戻る</span><span class="en"><- Back</span></button>
 </div>
 
 <script>

@@ -1,25 +1,25 @@
 <div class="page-section">
     <h2>4. Attribute (Disable)</h2>
-    <p>要素の属性操作です。</p>
+    <p><span class="ja">要素の属性操作です。</span><span class="en">Manipulate element attributes.</span></p>
     
-    <button id="btn-disable">無効化する</button>
-    <button id="btn-target" class="btn-primary">対象のボタン</button>
+    <button id="btn-disable"><span class="ja">無効化する</span><span class="en">Disable</span></button>
+    <button id="btn-target" class="btn-primary"><span class="ja">対象のボタン</span><span class="en">Target Button</span></button>
 
-    <h3 style="margin-top:24px;">📝 コード</h3>
+    <h3 style="margin-top:24px;"><span class="ja">📝 コード</span><span class="en">📝 Code</span></h3>
     <pre><code>let isDisabled = false;
 const targetBtn = carbon.id('btn-target');
 
 carbon.id('btn-disable').tapped((w) => {
     if (!isDisabled) {
         targetBtn.disable();
-        w.text('有効化する');
+        w.text('<span class="ja">有効化する</span><span class="en">Enable</span>');
     } else {
         targetBtn.enable();
-        w.text('無効化する');
+        w.text('<span class="ja">無効化する</span><span class="en">Disable</span>');
     }
     isDisabled = !isDisabled;
 });</code></pre>
-    <button class="btn-primary go-back" style="width:100%; margin-top:20px;"><- 戻る</button>
+    <button class="btn-primary go-back" style="width:100%; margin-top:20px;"><span class="ja"><- 戻る</span><span class="en"><- Back</span></button>
 </div>
 
 <script>
@@ -32,11 +32,11 @@ carbon.id('btn-disable').tapped((w) => {
         if (!isDisabled) {
             targetBtn.disable();
             targetBtn.text('無効化されています');
-            w.text('有効化する');
+            w.text('<span class="ja">有効化する</span><span class="en">Enable</span>');
         } else {
             targetBtn.enable();
-            targetBtn.text('対象のボタン');
-            w.text('無効化する');
+            targetBtn.text('<span class="ja">対象のボタン</span><span class="en">Target Button</span>');
+            w.text('<span class="ja">無効化する</span><span class="en">Disable</span>');
         }
         isDisabled = !isDisabled;
     });

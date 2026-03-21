@@ -1,13 +1,13 @@
 <div class="page-section">
     <h2>5. Gestures</h2>
-    <p>タッチやジェスチャー等に最適化されたイベント群です。</p>
+    <p><span class="ja">タッチやジェスチャー等に最適化されたイベント群です。</span><span class="en">Events optimized for touch and gestures.</span></p>
     
     <div id="touch-box" class="box">
-        触ってみて！<br>(Tap / Swipe / LongPress)
+        <span class="ja">触ってみて！</span><span class="en">Touch me!</span><br>(Tap / Swipe / LongPress)
     </div>
     <div id="event-log">Event logs...</div>
 
-    <h3 style="margin-top:24px;">📝 コード</h3>
+    <h3 style="margin-top:24px;"><span class="ja">📝 コード</span><span class="en">📝 Code</span></h3>
     <pre><code>const log = carbon.id('event-log');
 
 carbon.id('touch-box')
@@ -16,7 +16,7 @@ carbon.id('touch-box')
     .swiped((el, dir) => {
         log.text(`💨 ${dir}にスワイプ！`);
     });</code></pre>
-    <button class="btn-primary go-back" style="width:100%; margin-top:20px;"><- 戻る</button>
+    <button class="btn-primary go-back" style="width:100%; margin-top:20px;"><span class="ja"><- 戻る</span><span class="en"><- Back</span></button>
 </div>
 
 <script>

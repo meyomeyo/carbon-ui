@@ -274,3 +274,24 @@ td code { font-size: 13.5px; color: var(--danger); background: #fdf5f5; padding:
 .toc-box a { color: var(--text-main); text-decoration: none; font-weight: 600; transition: color 0.2s; display: inline-block; padding: 4px 0; }
 .toc-box a:hover { color: var(--success); }
 
+
+/* i18n support */
+html[lang="ja"] .en { display: none !important; }
+html[lang="en"] .ja { display: none !important; }
+
+.lang-switch {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 6px 12px;
+    cursor: pointer;
+    font-size: 14px;
+    z-index: 1000;
+    box-shadow: var(--shadow);
+}
+.lang-switch:hover {
+    background: var(--primary-light);
+}

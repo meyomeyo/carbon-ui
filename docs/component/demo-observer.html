@@ -1,18 +1,18 @@
 <div class="page-section">
     <h2>6. Observers</h2>
-    <p>要素の属性や入力値の変更を監視して関数を実行します。</p>
+    <p><span class="ja">要素の属性や入力値の変更を監視して関数を実行します。</span><span class="en">Execute a function by observing mutations or input values.</span></p>
     
-    <input type="text" id="input-watch" placeholder="ここに入力してテスト..." style="width:100%; padding:10px; border-radius:8px; border:1px solid var(--border); box-sizing:border-box;">
+    <input type="text" id="input-watch" placeholder="Input here to test..." style="width:100%; padding:10px; border-radius:8px; border:1px solid var(--border); box-sizing:border-box;">
     <div id="event-log" style="margin-top:10px;">ログ待機中...</div>
 
-    <h3 style="margin-top:24px;">📝 コード</h3>
+    <h3 style="margin-top:24px;"><span class="ja">📝 コード</span><span class="en">📝 Code</span></h3>
     <pre><code>const log = carbon.id('event-log');
 
 // valueの変更をリアルタイムに監視
 carbon.id('input-watch').watch('value', (val) => {
     log.text(`📝 入力検知: ${val}`);
 });</code></pre>
-    <button class="btn-primary go-back" style="width:100%; margin-top:20px;"><- 戻る</button>
+    <button class="btn-primary go-back" style="width:100%; margin-top:20px;"><span class="ja"><- 戻る</span><span class="en"><- Back</span></button>
 </div>
 
 <script>

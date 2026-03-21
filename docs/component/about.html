@@ -1,15 +1,15 @@
 <div class="page-section">
     <h2>ℹ️ Routing (SPA)</h2>
-    <p style="line-height:1.6;">ここは fetch() によって <code>component/about.html</code> から動的に読み込まれたコンポーネントです。</p>
-    <p style="line-height:1.6; color:var(--text-sub);">キャッシュ機構を利用しているため、2回目以降の遷移は瞬間的に切り替わります。</p>
+    <p style="line-height:1.6;"><span class="ja">ここは fetch() によって <code>component/about.html</code> から動的に読み込まれたコンポーネントです。</span><span class="en">This component was dynamically loaded via fetch from <code>component/about.html</code>.</span></p>
+    <p style="line-height:1.6; color:var(--text-sub);"><span class="ja">キャッシュ機構を利用しているため、2回目以降の遷移は瞬間的に切り替わります。</span><span class="en">Due to the caching mechanism, subsequent transitions are instantaneous.</span></p>
 
-    <h3 style="margin-top:24px;">📝 コード</h3>
+    <h3 style="margin-top:24px;"><span class="ja">📝 コード</span><span class="en">📝 Code</span></h3>
     <pre><code>// 他のページから移動するとき
 carbon.go('component/about');
 
 // 戻るとき
 carbon.back();</code></pre>
-    <button class="btn-primary go-back" style="width:100%; margin-top:16px;"><- Homeに戻る</button>
+    <button class="btn-primary go-back" style="width:100%; margin-top:16px;"><span class="ja"><- Homeに戻る</span><span class="en"><- Go Home</span></button>
 </div>
 
 <script>
