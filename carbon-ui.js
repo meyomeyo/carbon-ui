@@ -99,22 +99,22 @@ class CarbonWidget {
     }
 
     swiped(fn, threshold = 50) {
-        let startX, startY
-        const getTouchPoint = touch => {
-            const rect = this._el.getBoundingClientRect()
+        let startX, startY, startRect
+        const getTouchPoint = (touch, rect) => {
             return {
                 x: touch.clientX - rect.left,
                 y: touch.clientY - rect.top
             }
         }
         this._el.addEventListener('touchstart', e => {
-            const point = getTouchPoint(e.touches[0])
+            startRect = this._el.getBoundingClientRect()
+            const point = getTouchPoint(e.touches[0], startRect)
             startX = point.x
             startY = point.y
         }, { passive: true })
         this._el.addEventListener('touchend', e => {
-            if (startX === undefined || startY === undefined) return
-            const point = getTouchPoint(e.changedTouches[0])
+            if (startX === undefined || startY === undefined || !startRect) return
+            const point = getTouchPoint(e.changedTouches[0], startRect)
             const dx = point.x - startX
             const dy = point.y - startY
             if (Math.abs(dx) < threshold && Math.abs(dy) < threshold) return
@@ -124,6 +124,7 @@ class CarbonWidget {
             fn(this, dir)
             startX = undefined
             startY = undefined
+            startRect = undefined
         }, { passive: true })
         return this
     }
