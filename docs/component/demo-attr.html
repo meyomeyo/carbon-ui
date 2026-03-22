@@ -32,11 +32,11 @@ carbon.id('btn-disable').tapped((w) => {
         if (!isDisabled) {
             targetBtn.disable();
             targetBtn.text('無効化されています');
-            w.text('<span class="ja">有効化する</span><span class="en">Enable</span>');
+            w.html('<span class="ja">有効化する</span><span class="en">Enable</span>');
         } else {
             targetBtn.enable();
-            targetBtn.text('<span class="ja">対象のボタン</span><span class="en">Target Button</span>');
-            w.text('<span class="ja">無効化する</span><span class="en">Disable</span>');
+            targetBtn.html('<span class="ja">対象のボタン</span><span class="en">Target Button</span>');
+            w.html('<span class="ja">無効化する</span><span class="en">Disable</span>');
         }
         isDisabled = !isDisabled;
     });

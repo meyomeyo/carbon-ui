@@ -180,6 +180,11 @@ button[disabled] {
     font-size: 16px;
     transition: 0.3s;
     border: 2px dashed var(--primary);
+    text-align: center;
+    line-height: 1.4;
+    white-space: pre-line;
+    padding: 8px;
+    box-sizing: border-box;
 }
 
 #touch-box {
