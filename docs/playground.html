@@ -32,23 +32,17 @@
     <script type="module">
         import carbon from 'https://cdn.jsdelivr.net/gh/meyomeyo/carbon-ui/carbon-ui.js';
 
-        // ページ遷移後に確実にシンタックスハイライトを適用する
-        const _originalGo = carbon.go.bind(carbon);
-        carbon.go = async (...args) => {
-            const res = await _originalGo(...args);
+        // ページ遷移に対するフックを設定
+        carbon.afterGo(() => {
             if (window.hljs) hljs.highlightAll();
-            return res;
-        };
-
-        // 共通関数をグローバルに定義（各コンポーネントから呼び出せるようにする）
-        window.loadPage = async (pageCode) => {
-            await carbon.go(pageCode);
-            // 戻るボタンのバインド（どのコンポーネントにも共通）
+            // ページ遷移後に .go-back を探し、戻る処理をバインド
             carbon.class('go-back').tapped(() => carbon.back());
-        };
+        });
+
         carbon.init({
             root: '#app',
-            home: 'component/home'
+            basePath: 'component/',
+            home: 'home'
         });
     </script>
 </body>

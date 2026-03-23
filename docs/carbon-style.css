@@ -300,3 +300,124 @@ html[lang="en"] .ja { display: none !important; }
 .lang-switch:hover {
     background: var(--primary-light);
 }
+
+/* Docs Layout (Docs.html) */
+:root {
+    --docs-primary: #333;
+    --docs-bg: #fff;
+    --docs-sidebar-bg: #f5f5f5;
+    --docs-border: #eaeaea;
+    --docs-link: #0066cc;
+    --docs-link-hover: #004499;
+    --docs-code-bg: #f8f8f8;
+}
+
+.docs-layout {
+    display: flex;
+    min-height: 100vh;
+    background: var(--docs-bg);
+}
+
+.docs-sidebar {
+    width: 250px;
+    background: var(--docs-sidebar-bg);
+    border-right: 1px solid var(--docs-border);
+    padding: 2rem 1rem;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    flex-shrink: 0;
+}
+
+.docs-sidebar h2 {
+    font-size: 1.2rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: var(--docs-primary);
+}
+
+.docs-sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.docs-sidebar a {
+    display: block;
+    text-decoration: none;
+    color: var(--docs-primary);
+    font-size: 0.95rem;
+    padding: 0.5rem;
+    border-radius: 4px;
+    transition: background 0.2s, color 0.2s;
+    word-break: keep-all;
+}
+
+.docs-sidebar a:hover {
+    background: #e0e0e0;
+    color: var(--docs-link);
+}
+
+.docs-content {
+    flex-grow: 1;
+    padding: 2rem 4rem;
+    max-width: 900px;
+    scroll-behavior: smooth;
+}
+
+.docs-content > section {
+    margin-bottom: 4rem;
+    scroll-margin-top: 2rem;
+}
+
+.docs-content h1, .docs-content h2, .docs-content h3 {
+    border-bottom: 1px solid var(--docs-border);
+    padding-bottom: 0.5rem;
+    margin-top: 2rem;
+    color: var(--docs-primary);
+}
+
+.docs-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    border-bottom: none;
+}
+
+.docs-content code {
+    background: var(--docs-code-bg);
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
+    font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
+    font-size: 0.9em;
+    border: 1px solid var(--docs-border);
+}
+
+.docs-content pre code {
+    display: block;
+    padding: 1rem;
+    overflow-x: auto;
+    background: #282c34;
+    color: #abb2bf;
+    border: none;
+}
+
+@media (max-width: 768px) {
+    .docs-layout {
+        flex-direction: column;
+    }
+    .docs-sidebar {
+        width: 100%;
+        height: auto;
+        position: static;
+        border-right: none;
+        border-bottom: 1px solid var(--docs-border);
+        padding: 1rem;
+    }
+    .docs-content {
+        padding: 1rem;
+    }
+}

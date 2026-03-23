@@ -2,19 +2,19 @@
     <h2 class="ja">🏠 コンポーネント目次</h2><h2 class="en">🏠 Component Index</h2>
     <p class="ja" style="color:var(--text-sub); font-size:14px; margin-bottom:16px;">機能ごとにコンポーネント(.html)とスクリプトが分かれています。</p>
     <p class="en" style="color:var(--text-sub); font-size:14px; margin-bottom:16px;">Each feature is separated into its own component (.html) and script.</p>
-    <button class="menu-btn" data-go="component/demo-toggle"><span class="ja">1. Toggle (表示/非表示)</span><span class="en">1. Toggle (Show/Hide)</span></button>
-    <button class="menu-btn" data-go="component/demo-state"><span class="ja">2. State & Array (状態と複数要素)</span><span class="en">2. State & Array</span></button>
-    <button class="menu-btn" data-go="component/demo-status"><span class="ja">3. Status Colors (ステータス色)</span><span class="en">3. Status Colors</span></button>
-    <button class="menu-btn" data-go="component/demo-attr"><span class="ja">4. Attribute (属性操作)</span><span class="en">4. Attribute Manipulation</span></button>
-    <button class="menu-btn" data-go="component/demo-gesture"><span class="ja">5. Gestures (ジェスチャー)</span><span class="en">5. Gestures</span></button>
-    <button class="menu-btn" data-go="component/demo-observer"><span class="ja">6. Observers (監視)</span><span class="en">6. Observers</span></button>
-    <button class="menu-btn" data-go="component/about"><span class="ja">7. Routing (SPA遷移の詳細)</span><span class="en">7. Routing (SPA details)</span></button>
+    <button class="menu-btn" data-go="demo-toggle"><span class="ja">1. Toggle (表示/非表示)</span><span class="en">1. Toggle (Show/Hide)</span></button>
+    <button class="menu-btn" data-go="demo-state"><span class="ja">2. State & Array (状態と複数要素)</span><span class="en">2. State & Array</span></button>
+    <button class="menu-btn" data-go="demo-status"><span class="ja">3. Status Colors (ステータス色)</span><span class="en">3. Status Colors</span></button>
+    <button class="menu-btn" data-go="demo-attr"><span class="ja">4. Attribute (属性操作)</span><span class="en">4. Attribute Manipulation</span></button>
+    <button class="menu-btn" data-go="demo-gesture"><span class="ja">5. Gestures (ジェスチャー)</span><span class="en">5. Gestures</span></button>
+    <button class="menu-btn" data-go="demo-observer"><span class="ja">6. Observers (監視)</span><span class="en">6. Observers</span></button>
+    <button class="menu-btn" data-go="about"><span class="ja">7. Routing (SPA遷移の詳細)</span><span class="en">7. Routing (SPA details)</span></button>
 </div>
 
 <script>
 {
     carbon.class('menu-btn').tapped((w) => {
-        window.loadPage(w.raw.dataset.go);
+        carbon.go(w.raw.dataset.go);
     });
 }
 </script>

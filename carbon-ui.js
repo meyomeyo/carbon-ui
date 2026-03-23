@@ -293,10 +293,19 @@ const carbon = {
     _pageCache: new Map(),
 
     _currentAbort: null,
+    _afterGoHooks: [],
+
+    afterGo(fn) {
+        if (typeof fn === 'function') {
+            this._afterGoHooks.push(fn);
+        }
+        return this;
+    },
 
     init(options = {}) {
         this.routerRoot = options.root ?? '#app';
         this.homePage   = options.home ?? 'component/home';
+        this.basePath   = options.basePath ?? '';
         window.carbon   = this
 
         window.addEventListener('popstate', e => {
@@ -325,6 +334,7 @@ const carbon = {
         if (this._pageCache.has(pageName)) {
             root.innerHTML = this._pageCache.get(pageName);
             this._executeScripts(root);
+            this._afterGoHooks.forEach(fn => fn(pageName));
             return this;
         }
 
@@ -335,13 +345,14 @@ const carbon = {
 
         // 初回はFetchでHTMLファイルを取得
         try {
-            const res = await fetch(`${pageName}.html`, { signal: controller.signal });
+            const res = await fetch(`${this.basePath}${pageName}.html`, { signal: controller.signal });
             if (!res.ok) throw new Error(`${pageName}.html の読み込みに失敗しました (${res.status})`);
             
             const html = await res.text();
             this._pageCache.set(pageName, html);
             root.innerHTML = html;
             this._executeScripts(root);
+            this._afterGoHooks.forEach(fn => fn(pageName));
         } catch (err) {
             if (err.name === 'AbortError') return this;
             console.error('[CarbonUI] Routing Error:', err);
